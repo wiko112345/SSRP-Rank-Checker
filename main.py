@@ -21,7 +21,7 @@ def get_team_info(user_input):
     
     for key, value in config.team_shorts.items():
         input_list = [item.lower() for item in value]
-        result = get_close_matches(input_string, input_list, n=1)
+        result = get_close_matches(input_string, input_list, n=1, cutoff=0.5)
 
         if result:
             if config.teams[key]:
@@ -34,7 +34,7 @@ def get_rank(user_input, ranks):
         return ranks2[input_string]
 
     input_list = [item.lower() for item in ranks.keys()]
-    result = get_close_matches(input_string, input_list, n=1)
+    result = get_close_matches(input_string, input_list, n=1, cutoff=0.5)
     if result:
         return ranks2[result[0]]
 
@@ -45,8 +45,11 @@ def get_player_info(team, rank, level):
     if info["TeamInfo"]:
         info["Rank"] = get_rank(rank, info["TeamInfo"]["ranks"])
         if not info["Rank"]:
+            print(info["TeamInfo"])
+            print(1)
             return
     else:
+        print(2)
         return
     
     info["Points"] = info["Points"] + info["TeamInfo"]["base"]
@@ -59,11 +62,11 @@ def get_player_info(team, rank, level):
 
 Player1 = get_player_info(Player1_Team, Player1_Rank, Player1_Level)
 if not Player1:
-    print("Failed to get player1 info!")
+    print("Failed to get player1 info!\nPlease consider adding more information to certain fields")
 else:
     Player2 = get_player_info(Player2_Team, Player2_Rank, Player2_Level)
     if not Player2:
-        print("Failed to get player2 info!")
+        print("Failed to get player2 info!\nPlease consider adding more information to certain fields")
     else:
         print(f"Player1 Team: {Player1['TeamInfo']['name']}")
         print(f"Player1 Rank: {Player1['Rank']}")
