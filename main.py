@@ -22,6 +22,7 @@ def get_team_info(user_input):
     for key, value in config.team_shorts.items():
         input_list = [item.lower() for item in value]
         result = get_close_matches(input_string, input_list, n=1)
+
         if result:
             if config.teams[key]:
                 return config.teams[key]
@@ -32,7 +33,7 @@ def get_rank(user_input, ranks):
     if input_string in ranks2:
         return ranks2[input_string]
 
-    input_list = list(ranks2.keys())
+    input_list = [item.lower() for item in ranks.keys()]
     result = get_close_matches(input_string, input_list, n=1)
     if result:
         return ranks2[result[0]]
@@ -48,9 +49,9 @@ def get_player_info(team, rank, level):
     else:
         return
     
-    info["Points"] =+ info["TeamInfo"]["base"]
-    info["Points"] =+ info["TeamInfo"]["ranks"][info["Rank"]]
-    info["Points"] =+ level
+    info["Points"] = info["Points"] + info["TeamInfo"]["base"]
+    info["Points"] = info["Points"] + info["TeamInfo"]["ranks"][info["Rank"]]
+    info["Points"] = info["Points"] + level
     return info
     
 
@@ -64,10 +65,10 @@ else:
     if not Player2:
         print("Failed to get player2 info!")
     else:
-        print(f"Player1 Team: {Player2['TeamInfo']['name']}")
-        print(f"Player1 Rank: {Player2['Rank']}")
-        print(f"Player1 Level: {Player2_Level}")
-        print(f"Player1 Points: {Player2['Points']}")
+        print(f"Player1 Team: {Player1['TeamInfo']['name']}")
+        print(f"Player1 Rank: {Player1['Rank']}")
+        print(f"Player1 Level: {Player1_Level}")
+        print(f"Player1 Points: {Player1['Points']}")
         print("")
         print(f"Player2 Team: {Player2['TeamInfo']['name']}")
         print(f"Player2 Rank: {Player2['Rank']}")
