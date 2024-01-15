@@ -55,7 +55,6 @@ def get_rank(user_input, ranks):
 
 def get_player_info(team, rank, level):
     info = {}
-    info["Points"] = 0
     info["TeamInfo"] = get_team_info(team)
     if info["TeamInfo"]:
         info["Rank"] = get_rank(rank, info["TeamInfo"]["ranks"])
