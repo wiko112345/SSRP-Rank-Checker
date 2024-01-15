@@ -22,6 +22,7 @@ Player1_Level = int(input("Player1 Level: "))
 Player2_Team = input("Player2 Team: ")
 Player2_Rank = input("Player2 Rank: ")
 Player2_Level = int(input("Player2 Level: "))
+print("")
 
 if not Player1_Level:
     Player1_Level = 0
@@ -63,9 +64,13 @@ def get_player_info(team, rank, level):
     else:
         return
     
-    info["Points"] = info["Points"] + info["TeamInfo"]["base"]
-    info["Points"] = info["Points"] + info["TeamInfo"]["ranks"][info["Rank"]]
-    info["Points"] = info["Points"] + level
+    #info["Points"] = info["Points"] + info["TeamInfo"]["base"]
+    #info["Points"] = info["Points"] + info["TeamInfo"]["ranks"][info["Rank"]]
+    #info["Points"] = info["Points"] + level
+
+    #Formula used: (card level * 2) + (department rank * team multiplier)
+    info["Points"] = (level * 2) + (info["TeamInfo"]["ranks"][info["Rank"]] * info["TeamInfo"]["base"]) 
+
     return info
     
 
