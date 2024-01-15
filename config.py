@@ -1,3 +1,7 @@
+current_version = "1.0.1"
+username = "wiko112345"
+repo = "SSRP-Rank-Checker"
+
 team_shorts = {
     "ci": ["CI", "Chaos Insurgency"],
     "cd": ["CD", "Class-D", "ClassD", "Class D"],

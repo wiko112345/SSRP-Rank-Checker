@@ -2,7 +2,14 @@ import config
 import requests
 from difflib import get_close_matches
 
-# https://www.phind.com/agent?cache=clrevw9we0007l808fkw1pgo2
+def get_latest_release():
+   url = f"https://api.github.com/repos/{config.username}/{config.repo}/releases/latest"
+   response = requests.get(url)
+   return response.json()["tag_name"]
+
+latest_release = get_latest_release()
+if config.current_version < latest_release:
+   print(f"\033[1;31;40m Your currently using an outdated version. Please update immediately!\nhttps://github.com/{config.username}/{config.repo}/releases/tag/{latest_release}\n\n")
 
 Player1_Team = input("Player1 Team: ")
 Player1_Rank = input("Player1 Rank: ")
@@ -48,11 +55,8 @@ def get_player_info(team, rank, level):
     if info["TeamInfo"]:
         info["Rank"] = get_rank(rank, info["TeamInfo"]["ranks"])
         if not info["Rank"]:
-            print(info["TeamInfo"])
-            print(1)
             return
     else:
-        print(2)
         return
     
     info["Points"] = info["Points"] + info["TeamInfo"]["base"]
