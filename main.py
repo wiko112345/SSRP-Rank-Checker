@@ -1,6 +1,10 @@
 import config
 import requests
 from difflib import get_close_matches
+from termcolor import colored
+import colorama
+
+colorama.init()
 
 def get_latest_release():
    url = f"https://api.github.com/repos/{config.username}/{config.repo}/releases/latest"
@@ -9,7 +13,7 @@ def get_latest_release():
 
 latest_release = get_latest_release()
 if config.current_version < latest_release:
-   print(f"\033[1;31;40m Your currently using an outdated version. Please update immediately!\nhttps://github.com/{config.username}/{config.repo}/releases/tag/{latest_release}\n\n")
+   print(colored(f"Your currently using an outdated version. Please update as soon as possible!\nCurrent version: {config.current_version}\nLatest version: {latest_release}\nUpdate link: https://github.com/{config.username}/{config.repo}/releases/tag/{latest_release}", "red"))
 
 Player1_Team = input("Player1 Team: ")
 Player1_Rank = input("Player1 Rank: ")
