@@ -80,7 +80,7 @@ teams = {
     },
     "sd": {
         "name": "Security Department",
-        "base": 2,
+        "base": 1,
         "ranks": {
             "Recruit": 0,
             "Guard": 1,
@@ -95,7 +95,7 @@ teams = {
     },
     "mtf": {
         "name": "Mobile Task Force",
-        "base": 3,
+        "base": 1,
         "ranks": {
             "Recruit": 0,
             "Operative": 1,
@@ -110,7 +110,7 @@ teams = {
     },
     "rrt": {
         "name": "Rapid Response Team",
-        "base": 4,
+        "base": 2,
         "ranks": {
             "Recruit": 0,
             "Agent": 1,
@@ -125,7 +125,7 @@ teams = {
     },
     "ia": {
         "name": "Intelligence Agency",
-        "base": 5,
+        "base": 3,
         "ranks": {
             "Recruit": 0,
             "Agent": 1,
@@ -140,7 +140,7 @@ teams = {
     },
     "sid": {
         "name": "Site Director",
-        "base": 6,
+        "base": 4,
         "ranks": {
             "Newly Appointed": 0,
             "Inexperienced": 1,
@@ -155,7 +155,7 @@ teams = {
     },
     "o5": {
         "name": "O5 Council",
-        "base": 7,
+        "base": 5,
         "ranks": {
             "3": 0,
             "4": 1,
