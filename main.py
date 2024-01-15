@@ -1,4 +1,5 @@
 import config
+import requests
 from difflib import get_close_matches
 
 Player1_Team = input("Player1 Team: ")
