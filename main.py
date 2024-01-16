@@ -43,7 +43,7 @@ def get_player_info(player):
     info = {}
     info["TeamInfo"] = get_team_info(input(f"Player{player} Team: "))
     if not info["TeamInfo"]:
-        print(colored(f"Team not found, please provide more information about the team or purely a shortcut (rrt, sid, md, etc.)", "red"))
+        print(colored(f"Team not found, please provide more information about the team or simply a shortcut (rrt, sid, md, etc.)", "red"))
         return
     info["Rank"] = get_rank(input(f"Player{player} Rank: "), info["TeamInfo"]["ranks"])
     if not info["Rank"]:
