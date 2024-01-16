@@ -1,4 +1,4 @@
-current_version = "1.0.4"
+current_version = "1.0.5"
 username = "wiko112345"
 repo = "SSRP-Rank-Checker"
 
