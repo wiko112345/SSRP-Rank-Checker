@@ -91,6 +91,7 @@ def start():
         print("Player 1 is above to player 2")
     else:
         print("We could not automatically determine who is higher!")
+    print("")
 
 while True:
     start()
